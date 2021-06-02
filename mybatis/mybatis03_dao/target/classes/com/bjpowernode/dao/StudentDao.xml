@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bjpowernode.dao.StudentDao">
+    <!--查找所有学生的数据-->
+    <select id="getStudents" resultType="com.bjpowernode.entity.Student">
+        select id,name,email,age from student order by id
+    </select>
+    <!--插入学生信息-->
+    <insert id="insertStudents">
+        insert into student values(#{id},#{name},#{email},#{age})
+    </insert>
+    <!--根据id删除学生信息-->
+    <delete id="deleteStudentsById">
+        delete from student where id = #{45}
+    </delete>
+    <!--修改学生信息-->
+    <update id="updateStudent">
+        update student set name=#{name},email=#{email},age=#{age} where id=#{id}
+    </update>
+
+</mapper>

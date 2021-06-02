@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!--把实体类的别名都设为类名-->
+        <package name="com.bjpowernode.entity"/>
+    </typeAliases>
+    <!-- sql mapper(sql映射文件)的位置-->
+    <mappers>
+        <!--可加入多个sql映射文件-->
+        <package name="com.bjpowernode.dao"/>
+    </mappers>
+</configuration>

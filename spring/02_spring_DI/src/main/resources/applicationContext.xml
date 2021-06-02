@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="teacher1" class="com.bjpowernode.entity.Teacher"/>
+    <!--
+        设值注入：调用的是类的set方法，根据<property>标签中的name属性值来寻找实体类中对应的set方法，
+                只要实体类中有对应的set方法就会执行
+    -->
+    <!--简单类型的设值注入-->
+    <bean id="teacher2" class="com.bjpowernode.entity.Teacher">
+        <property name="age" value="80"/>
+        <property name="name" value="孔子"/>
+    </bean>
+    <!--引用类型的设值注入-->
+    <bean id="teacher3" class="com.bjpowernode.entity.Teacher">
+        <property name="age" value="70"/>
+        <property name="name" value="孟子"/>
+        <property name="school" ref="school1"/>
+    </bean>
+    <bean id="school1" class="com.bjpowernode.entity.School">
+        <property name="name" value="清华大学"/>
+        <property name="address" value="北京"/>
+    </bean>
+    <!--<bean id="school" class="com.bjpowernode.entity.School">
+        <property name="name" value="北京大学"/>
+        <property name="address" value="北京"/>
+    </bean>
+-->
+    <!--
+        构造注入：调用类的构造方法进行实体类的实例化
+    -->
+    <!--第一种构造注入-->
+    <bean id="teacher4" class="com.bjpowernode.entity.Teacher">
+        <constructor-arg name="age" value="40"/>
+        <constructor-arg name="name" value="荀子"/>
+        <constructor-arg name="school" ref="school1"/>
+    </bean>
+    <!--第二种构造注入-->
+    <bean id="teacher5" class="com.bjpowernode.entity.Teacher">
+        <constructor-arg index="0" value="狗子"/>
+        <constructor-arg index="1" value="30"/>
+        <constructor-arg index="2" ref="school1"/>
+    </bean>
+
+    <!--构造注入创建文件对象-->
+    <bean id="file01" class="java.io.File">
+        <constructor-arg name="parent" value="D:\JAVA_Study\05-流行框架\05-最新版SSM（IDEA全套）\04-Spring\课程资料\01-文档"/>
+        <constructor-arg name="child" value="北京动力节点-王鹤-Spring框架.pdf"/>
+    </bean>
+
+    <!--
+    引用属性值的自动注入
+    1. byName方式：属性名与<bean>中的id相同的对象就会自动注入
+    2. byType方式：容器中有一个与属性类型相同的对象就会自动注入，但是相同类型对象大于1个就会报错
+    -->
+    <!--byName方式注入-->
+    <bean id="teacher6" autowire="byName" class="com.bjpowernode.entity.Teacher">
+        <property name="name" value="孙子"/>
+        <property name="age" value="25"/>
+        <!--<property name="school" ref="school1"/>-->
+    </bean>
+    <!--byType方式注入-->
+    <bean id="teacher7" class="com.bjpowernode.entity.Teacher" autowire="byType">
+        <property name="name" value="曾子"/>
+        <property name="age" value="10"/>
+    </bean>
+</beans>

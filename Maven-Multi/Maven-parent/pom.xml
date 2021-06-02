@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bjpowernode.maven</groupId>
+    <artifactId>Maven-parent</artifactId>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>Maven-java001</module>
+        <module>maven-web02</module>
+    </modules>
+
+    <packaging>pom</packaging>
+    <!--管理依赖版本号-->
+    <!--通常自定义的标签名称由“项目名称”+version构成-->
+    <properties>
+        <mysql-version>8.0.24</mysql-version>
+        <dubbo>2.7.5</dubbo>
+    </properties>
+    <!--管理依赖-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

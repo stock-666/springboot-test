@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jedis-test:war">
+    <output-path>$PROJECT_DIR$/jedis-test/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jedis-test</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jedis-test-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jedis-test:war exploded" />
+    </root>
+  </artifact>
+</component>

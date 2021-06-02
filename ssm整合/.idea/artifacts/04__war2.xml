@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="04_全局异常处理:war">
+    <output-path>$PROJECT_DIR$/04_全局异常处理/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>04_全局异常处理</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="04_全局异常处理-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="04_全局异常处理:war exploded" />
+    </root>
+  </artifact>
+</component>

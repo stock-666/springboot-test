@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--settings：控制mybatis全局行为-->
+    <settings>
+        <!--设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <environments default="bjpowernode"><!--需要使用的数据库id-->
+        <environment id="bjpowernode"><!--自定义，建议使用连接的数据库名称-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--数据库的驱动类名-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--连接数据库的url字符串-->
+                <property name="url" value="jdbc:mysql://localhost:3306/bjpowernode"/>
+                <!--访问数据库的用户名-->
+                <property name="username" value="root"/>
+                <!--密码-->
+                <property name="password" value="1195196992"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- sql mapper(sql映射文件)的位置-->
+    <mappers>
+        <mapper resource="com/bjpowernode/dao/StudentDao.xml"/>
+        <!--可加入多个sql映射文件-->
+    </mappers>
+</configuration>
